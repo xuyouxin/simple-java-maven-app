@@ -11,6 +11,10 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        stage('myTest') {
+            def testMethod = load("file.groovy");
+            testMethod.firstTest()
+        }
         stage('Test') {
             steps {
                 sh 'mvn test'
